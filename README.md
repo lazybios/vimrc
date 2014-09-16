@@ -1,0 +1,4 @@
+vimrc
+=====
+
+lazybios's vimrc
