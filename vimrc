@@ -1,4 +1,4 @@
-"common conf {{
+"common conf {
 
     execute pathogen#infect()
     filetype plugin indent on
@@ -11,6 +11,8 @@
     set expandtab   " auto replace tab as space 
     set shiftwidth=4
     set softtabstop=4
+
+    autocmd Filetype ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2  " when file is ruby type than tabstop equal 2
 
     set nu     "line number
     set autoread  "reload files when changed on disk,i.e. via `git checkout`
@@ -30,6 +32,10 @@
     " set nohlsearch
     "normap <slient> <Space> :nohlsearch<Bar>:echo<CR>
 
+    " map ctrl+c and ctrl+v
+    noremap <C-c> y
+    " noremap <C-v> P
+
     set ignorecase "case-insensitive search
     set list
     set listchars=tab:▸\ ,trail:▫  " show trailing whitespace
@@ -40,11 +46,11 @@
     autocmd! bufwritepost vimrc source ~/.vim/vimrc
 
     " set quick escape from insert mode, and now I can go without arrow keys and
-    "   " use j and k to move around in insert mode
+    " use j and k to move around in insert mode
     imap jj <esc>
 
-"}}
 
+"}}
 
 "powerline{ 
     set guifont=PowerlineSymbols\ for\ Powerline 
@@ -60,4 +66,16 @@
     let g:tagbar_right = 1        "在右侧  
 "}
 
+"ctrlp{
+    let g:ctrlp_map = '<c-p>'
+    let g:ctrlp_cmd = 'CtrlP'
+    let g:ctrlp_working_path_mode = 'ra'
 
+    set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
+    "ignore some type file
+    let g:ctrl_open_ignore = {
+        \ 'dir': '\v[\/]\.(git)$',
+        \ 'file': '\v\.(jpg|png|jpeg)$',
+        \ }
+"}
