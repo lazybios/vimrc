@@ -4,6 +4,7 @@
     filetype plugin indent on
     filetype on
 
+
     syntax on   "syntax highlight
     set laststatus=2 "always show status bar
 
